@@ -39,3 +39,10 @@ def save_video(video, file_path):
 
 def concatenate_videos(videos):
     return mpe.concatenate_videoclips(videos, method='compose')
+
+
+def get_video_duration_by_path(video_path):
+    video = mpe.VideoFileClip(video_path)
+    duration = video.duration
+    video.close()
+    return duration
