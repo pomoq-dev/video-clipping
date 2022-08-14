@@ -51,7 +51,7 @@ def download_video_and_audio_run(yt_url, res_video_path, res_audio_path):
     URLS = [yt_url]
     ydl_opts = {
         'format': '{}'.format(dl_video_id),
-        'output': res_video_path
+        'output': '{}/{}.mp4'.format(res_video_path, yt_url)
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         error_code = ydl.download(URLS)
@@ -68,7 +68,7 @@ def download_video_and_audio_run(yt_url, res_video_path, res_audio_path):
     URLS = [yt_url]
     ydl_opts = {
         'format': '{}'.format(dl_audio_id),
-        'output': res_audio_path
+        'output': '{}/{}.m4a'.format(res_audio_path, yt_url)
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         error_code = ydl.download(URLS)
