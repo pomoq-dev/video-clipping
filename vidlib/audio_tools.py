@@ -25,3 +25,7 @@ def audio_change_for_video(source_audio, piece_duration=3, video=None):
 
     sub_audios = split_audio_to_parts(audio, piece_duration)
     return mpe.concatenate_audioclips(sub_audios)
+
+
+def save_audio(audio, path):
+    audio.write_audiofile(path, codec='aac')

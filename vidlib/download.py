@@ -79,9 +79,9 @@ def download_video_and_audio_using_lib(yt_url, res_video_path, res_audio_path):
     files_names = os.listdir('.')
     for file_name in files_names:
         if file_name.endswith('.mp4'):
-            shutil.move(os.path.join('.', file_name), os.path.join(res_video_path, file_name))
+            shutil.move(os.path.join('.', file_name), res_video_path)
         if file_name.endswith('.m4a'):
-            shutil.move(os.path.join('.', file_name), os.path.join(res_audio_path, file_name))
+            shutil.move(os.path.join('.', file_name), res_audio_path)
 
     # print(' '.join(['yt-dlp', '-f', dl_audio_id, f"{yt_url}", '-o', res_audio_path]))
     # text = run(['yt-dlp', '-f', dl_audio_id, f"{yt_url}", '-o', res_audio_path], capture_output=True).stdout
