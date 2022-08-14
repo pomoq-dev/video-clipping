@@ -1,16 +1,14 @@
 import os
 import random
-import shutil
 
 import moviepy.editor as mpe
 from moviepy.audio.AudioClip import CompositeAudioClip
 
-import audio_tools
-import clear_directories
+from src import audio_tools, clear_directories
 import video_tools
 
-CLIPS_DIR = 'clips'
-ads_clip = mpe.VideoFileClip('ExtensionAds.mp4')
+CLIPS_DIR = '../clips'
+ads_clip = mpe.VideoFileClip('../ExtensionAds.mp4')
 
 
 def resize_all_clips(clips, w, h):

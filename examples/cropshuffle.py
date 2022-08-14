@@ -1,10 +1,8 @@
-import os
 import random
-import subprocess
 
-import video_tools
-from download import download_video_and_audio
-from video_tools import add_audio_to_video, split_video
+from src import video_tools
+from src.download import download_video_and_audio
+from src.video_tools import add_audio_to_video, split_video
 
 PATH = '/Users/andrey.matveev/VIDEO/input.mp4'
 PATH_AUDIO = '/Users/andrey.matveev/VIDEO/input.m4a'

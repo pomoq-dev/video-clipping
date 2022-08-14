@@ -1,5 +1,4 @@
-import clips_random_joiner
-import download_and_split_video
+from src import clips_random_joiner
 
 
 def start():
@@ -66,7 +65,7 @@ def start():
                  'https://www.youtube.com/watch?v=PvcaIJbmBKA']
 
     # download_and_split_video.download_and_split_by_clips(urls_binge)
-    clips_random_joiner.join_clips(14, 'results_vidosa', 'beethoven.flac', True)
+    clips_random_joiner.join_clips(14, '../results_vidosa', 'beethoven.flac', True)
 
 
 start()

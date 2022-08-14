@@ -3,7 +3,7 @@ import random
 
 import moviepy.editor as mpe
 
-RESULTS_DIR = 'results'
+RESULTS_DIR = '../results'
 
 
 videos_paths = list(filter(lambda f: f.startswith('result') and '_15.' not in f, os.listdir(RESULTS_DIR)))

@@ -1,7 +1,7 @@
 import os
 import random
 
-PATH = 'rename_example_directory'
+PATH = '../rename_example_directory'
 
 files = os.listdir(PATH)
 paths = []

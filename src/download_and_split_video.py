@@ -18,8 +18,8 @@ old_video_urls = ['https://www.youtube.com/watch?v=0PvbixQ_tJ0',
 def download_and_split_by_clips(video_urls, subclip_len=44):
     names = []
     for i in range(0, len(video_urls)):
-        video_name = os.path.join('source', f'video{i}.mp4')
-        audio_name = os.path.join('source', f'audio{i}.m4a')
+        video_name = os.path.join('../source', f'video{i}.mp4')
+        audio_name = os.path.join('../source', f'audio{i}.m4a')
         names.append((video_name, audio_name))
 
 
@@ -35,7 +35,7 @@ def download_and_split_by_clips(video_urls, subclip_len=44):
         sub_clips = split_video(clip, segments_num)
         sub_clip_i = 0
         for sub_clip in sub_clips:
-            res_name = os.path.join('clips', f'video{name_i}clip{sub_clip_i}.mp4')
+            res_name = os.path.join('../clips', f'video{name_i}clip{sub_clip_i}.mp4')
             sub_clip.write_videofile(res_name, codec= 'mpeg4', audio_codec='aac')
             sub_clip_i += 1
 
