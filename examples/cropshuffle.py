@@ -17,5 +17,5 @@ part_len = clip.duration / SEGMENTS
 outputs = split_video_segments_num(clip, SEGMENTS)
 
 random.shuffle(outputs)
-res = video_tools.join_clips_to_video(outputs)
+res = video_tools.concatenate_videos(outputs)
 save_video(res, 'out.mp4')

@@ -65,7 +65,7 @@ def join_random_clips(clips_in_one):
             sub_video = mpe.VideoFileClip(video_paths[random.randint(0, len(video_paths) - 1)])
             sub_video = sub_video.set_audio(sub_audio)
             sub_videos.append(sub_video)
-        res_video = mpe.concatenate_videoclips(sub_videos)
+        res_video = video_tools.concatenate_videos(sub_videos)
         video_tools.save_video(res_video, res_path)
 
 

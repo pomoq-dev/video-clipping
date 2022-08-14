@@ -30,5 +30,5 @@ for i in inputs:
     outputs.append(out_clip)
 
 # combine clips from different videos
-collage = moviepy.editor.concatenate_videoclips(outputs) 
+collage = video_tools.concatenate_videos(outputs)
 video_tools.save_video(collage, 'out.mp4')

@@ -28,7 +28,7 @@ def make_video_from_clips(clips, res_dir_name, minw, minh, num_clips_in_video, r
     where_to_ads_i = random.randint(min(2, num_clips_in_video - 1), min(8, num_clips_in_video))
     clips.insert(where_to_ads_i, ads_clip)
 
-    video = video_tools.join_clips_to_video(clips)
+    video = video_tools.concatenate_videos(clips)
     big_audio = mpe.AudioFileClip(big_audio_path)
     audio = audio_tools.audio_change_for_video(big_audio, 3, video)
 
