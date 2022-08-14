@@ -6,12 +6,12 @@ from tqdm import tqdm
 
 from src.video_tools import get_video_duration_by_path
 
-TODAY_DIR = 'C:\\Users\\am779\\Videos\\Reels_test\\18'
-ALL_RANDOM_DIR = 'C:\\Users\\am779\\Videos\\Reels_test\\R'
-RESULT_WITH_NEW_DIRS = ['C:\\Users\\am779\\Videos\\Reels_test\\M1', 'C:\\Users\\am779\\Videos\\Reels_test\\M2',
-                        'C:\\Users\\am779\\Videos\\Reels_test\\M3', 'C:\\Users\\am779\\Videos\\Reels_test\\M4']
-RESULT_WITH_OLD_DIRS = ['C:\\Users\\am779\\Videos\\Reels_test\\M11', 'C:\\Users\\am779\\Videos\\Reels_test\\M21',
-                        'C:\\Users\\am779\\Videos\\Reels_test\\M31', 'C:\\Users\\am779\\Videos\\Reels_test\\M41']
+TODAY_DIR = 'C:\\Users\\am779\\Videos\\Reels\\19_noused'
+ALL_RANDOM_DIR = 'C:\\Users\\am779\\Videos\\Reels\\R'
+RESULT_WITH_NEW_DIRS = ['C:\\Users\\am779\\Videos\\Reels\\M1', 'C:\\Users\\am779\\Videos\\Reels\\M2',
+                        'C:\\Users\\am779\\Videos\\Reels\\M3', 'C:\\Users\\am779\\Videos\\Reels\\M4']
+RESULT_WITH_OLD_DIRS = ['C:\\Users\\am779\\Videos\\Reels\\M11', 'C:\\Users\\am779\\Videos\\Reels\\M21',
+                        'C:\\Users\\am779\\Videos\\Reels\\M31', 'C:\\Users\\am779\\Videos\\Reels\\M41']
 WANT_DURATION = 8 * 60 + 30
 
 
@@ -33,7 +33,7 @@ def get_total_duration(videos_paths):
 
 
 def add_old_videos_to(init_videos_paths, all_videos_paths, want_duration):
-    print("add_old_videos_to")
+    # print("add_old_videos_to")
     random.shuffle(all_videos_paths)
     total_duration = get_total_duration(init_videos_paths)
     result_videos_paths = init_videos_paths.copy()
