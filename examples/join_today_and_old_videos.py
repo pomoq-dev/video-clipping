@@ -2,12 +2,16 @@ import os
 import random
 import shutil
 
+from tqdm import tqdm
+
 from src.video_tools import get_video_duration_by_path
 
-TODAY_DIR = ''
-ALL_RANDOM_DIR = ''
-RESULT_WITH_NEW_DIRS = ['M1', 'M2', 'M3', 'M4']
-RESULT_WITH_OLD_DIRS = ['M11', 'M21', 'M31', 'M41']
+TODAY_DIR = 'C:\\Users\\am779\\Videos\\Reels_test\\18'
+ALL_RANDOM_DIR = 'C:\\Users\\am779\\Videos\\Reels_test\\R'
+RESULT_WITH_NEW_DIRS = ['C:\\Users\\am779\\Videos\\Reels_test\\M1', 'C:\\Users\\am779\\Videos\\Reels_test\\M2',
+                        'C:\\Users\\am779\\Videos\\Reels_test\\M3', 'C:\\Users\\am779\\Videos\\Reels_test\\M4']
+RESULT_WITH_OLD_DIRS = ['C:\\Users\\am779\\Videos\\Reels_test\\M11', 'C:\\Users\\am779\\Videos\\Reels_test\\M21',
+                        'C:\\Users\\am779\\Videos\\Reels_test\\M31', 'C:\\Users\\am779\\Videos\\Reels_test\\M41']
 WANT_DURATION = 8 * 60 + 1
 
 
@@ -29,12 +33,14 @@ def get_total_duration(videos_paths):
 
 
 def add_old_videos_to(init_videos_paths, all_videos_paths, want_duration):
+    print("add_old_videos_to")
     random.shuffle(all_videos_paths)
     total_duration = get_total_duration(init_videos_paths)
     result_videos_paths = init_videos_paths
 
     ind = 0
     while total_duration < want_duration and ind < len(all_videos_paths):
+        print(ind)
         video_path = all_videos_paths[ind]
         ind += 1
         total_duration += get_video_duration_by_path(video_path)
@@ -45,8 +51,9 @@ def add_old_videos_to(init_videos_paths, all_videos_paths, want_duration):
 
 
 def save_videos_to_dir(videos_paths, dir_path):
-    for ind, path in enumerate(videos_paths):
-        new_file_name = f'file_{ind}'
+    for ind, path in tqdm(enumerate(videos_paths)):
+        # new_file_name = f'file_{ind}.mp4'
+        new_file_name = os.path.basename(path)
         new_file_path = os.path.join(dir_path, new_file_name)
         shutil.copy2(path, new_file_path)
 
