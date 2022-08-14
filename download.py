@@ -26,3 +26,22 @@ def download_video_and_audio(yt_url, res_video_path, res_audio_path):
     subprocess.run(['yt-dlp', '-f', dl_audio_id, f"{yt_url}", '-o', res_audio_path], stdout=subprocess.PIPE,
                    stderr=subprocess.PIPE)
     print('Completed')
+
+
+def print_subprocess_output(proc):
+    while True:
+        line = proc.stdout.readline()
+        if not line:
+            break
+        print(line)
+        line = proc.stderr.readline()
+        if not line:
+            break
+        print(line)
+
+
+def download_video_with_audio(yt_url):
+    p = subprocess.Popen(['yt-dlp', '-f', 'best', f"{yt_url}", '-o', SOURCE_VIDEO_NAME], stdout=subprocess.PIPE,
+                         stderr=subprocess.PIPE)
+    print_subprocess_output(p)
+    print(42)
