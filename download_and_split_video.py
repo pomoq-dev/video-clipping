@@ -1,8 +1,7 @@
 import os
 
 from download import download_video_and_audio
-from splitter import split_video
-from video_tools import add_audio_to_video
+from video_tools import add_audio_to_video, split_video
 
 old_video_urls = ['https://www.youtube.com/watch?v=0PvbixQ_tJ0',
               'https://www.youtube.com/watch?v=M8MMTNs9Qss&ab_channel=FunnyTube',
