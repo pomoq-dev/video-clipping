@@ -31,7 +31,7 @@ def download_video_and_audio(yt_url, res_video_path, res_audio_path):
     print('Completed')
 
 
-def download_video_and_audio_run(yt_url, res_video_path, res_audio_path):
+def download_video_and_audio_using_lib(yt_url, res_video_path, res_audio_path):
     text = run(['yt-dlp', '-F', f"{yt_url}"], capture_output=True).stdout
     lines = str(text).split(sep="\\n")
     dl_video_id = ''
