@@ -1,6 +1,8 @@
+import os
 import random
 
 from moviepy import editor as mpe
+from pydub import AudioSegment
 
 
 def split_audio_to_parts(audio, piece_duration=3):
@@ -29,3 +31,17 @@ def audio_change_for_video(source_audio, piece_duration=3, video=None):
 
 def save_audio(audio, path):
     audio.write_audiofile(path, codec='aac')
+
+
+def mp32wav(mp3_path, wav_path, remove_original=False):
+    sound = AudioSegment.from_mp3(mp3_path)
+    sound.export(wav_path, format="wav")
+    if remove_original:
+        os.remove(mp3_path)
+
+
+def m4a2wav(m4a_path, wav_path, remove_original=False):
+    sound = AudioSegment.from_file(m4a_path, format='m4a')
+    sound.export(wav_path, format='wav')
+    if remove_original:
+        os.remove(m4a_path)
