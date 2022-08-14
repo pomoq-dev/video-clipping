@@ -2,8 +2,8 @@ import os
 
 from tqdm import tqdm
 
-from src.download import download_video_and_audio
-from src import clear_directories, video_tools
+from vidlib.download import download_video_and_audio
+from vidlib import clear_directories, video_tools
 
 old_video_urls = ['https://www.youtube.com/watch?v=0PvbixQ_tJ0',
                   'https://www.youtube.com/watch?v=M8MMTNs9Qss&ab_channel=FunnyTube',

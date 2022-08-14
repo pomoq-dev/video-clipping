@@ -3,9 +3,9 @@ import random
 
 import moviepy.editor as mpe
 
-import src.video_tools
-from src import audio_tools, video_tools
-from src.files_tools import get_all_paths_files_ext_in_dir
+import vidlib.video_tools
+from vidlib import audio_tools, video_tools
+from vidlib.files_tools import get_all_paths_files_ext_in_dir
 
 SHORT_CLIPS = '../short_clips'
 
@@ -28,4 +28,4 @@ def join_short_clips_to_video_audio_duration(audio, clips_dir):
 
 audio = audio_tools.audio_change_for_video(mpe.AudioFileClip('/Users/andrey.matveev/Documents/x6beatReduce.mp3'))
 video = join_short_clips_to_video_audio_duration(audio, SHORT_CLIPS)
-src.video_tools.save_video(video, 'hobana4.mp4')
+vidlib.video_tools.save_video(video, 'hobana4.mp4')

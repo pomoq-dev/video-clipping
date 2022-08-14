@@ -1,8 +1,8 @@
 import random
 
-from src import video_tools
-from src.download import download_video_and_audio
-from src.video_tools import add_audio_to_video, split_video_segments_num, save_video
+from vidlib import video_tools
+from vidlib.download import download_video_and_audio
+from vidlib.video_tools import add_audio_to_video, split_video_segments_num, save_video
 
 PATH = '/Users/andrey.matveev/VIDEO/input.mp4'
 PATH_AUDIO = '/Users/andrey.matveev/VIDEO/input.m4a'

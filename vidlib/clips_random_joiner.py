@@ -4,8 +4,8 @@ import random
 import moviepy.editor as mpe
 from moviepy.audio.AudioClip import CompositeAudioClip
 
-from src import audio_tools, clear_directories
-from src import video_tools
+from vidlib import audio_tools, clear_directories
+from vidlib import video_tools
 
 CLIPS_DIR = '../clips'
 ads_clip = mpe.VideoFileClip('../ExtensionAds.mp4')

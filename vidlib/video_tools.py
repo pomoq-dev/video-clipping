@@ -1,7 +1,7 @@
 import moviepy.editor as mpe
 from tqdm import tqdm
 
-import src.mylog
+import vidlib.mylog
 
 
 def add_audio_to_video(path_video, path_audio):
@@ -23,7 +23,7 @@ def split_video_part_len(clip, part_len):
 
 
 def split_video(clip, part_len, segments_num):
-    src.mylog.log_message('Splitting video...')
+    vidlib.mylog.log_message('Splitting video...')
     outputs = []
     for i in tqdm(range(0, segments_num)):
         start = round(i * part_len, 2)

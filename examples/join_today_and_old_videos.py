@@ -4,7 +4,7 @@ import shutil
 
 from tqdm import tqdm
 
-from src.video_tools import get_video_duration_by_path
+from vidlib.video_tools import get_video_duration_by_path
 
 TODAY_DIR = 'C:\\Users\\am779\\Videos\\Reels\\19_noused'
 ALL_RANDOM_DIR = 'C:\\Users\\am779\\Videos\\Reels\\R'

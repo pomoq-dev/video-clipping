@@ -3,7 +3,7 @@ import os
 import random
 import fnmatch
 
-from src import video_tools
+from vidlib import video_tools
 
 directory = '/directory/to/videos/'
 xdim = 854
