@@ -1,3 +1,4 @@
+import os
 import random
 import subprocess
 
@@ -18,4 +19,5 @@ part_len = clip.duration / SEGMENTS
 outputs = split_video(clip, SEGMENTS)
 
 random.shuffle(outputs)
-video_tools.join_clips_to_video(outputs, 'out.mp4')
+res = video_tools.join_clips_to_video(outputs)
+res.write_videofile('out.mp4', codec='mpeg4', audio_codec='aac')

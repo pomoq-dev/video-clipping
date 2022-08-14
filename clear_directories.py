@@ -2,15 +2,14 @@ import os
 import shutil
 
 
-def remove_directory(name):
+def clear_directory(name):
     print(f'Removing {name}...')
-    shutil.rmtree(name)
+    if os.path.isdir(name):
+        shutil.rmtree(name)
+    os.mkdir(name)
 
 
-remove_directory('clips')
-remove_directory('results')
-remove_directory('source')
-
-os.mkdir('clips')
-os.mkdir('results')
-os.mkdir('source')
+def clear_all():
+    clear_directory('clips')
+    clear_directory('results')
+    clear_directory('source')

@@ -1,8 +1,12 @@
 import os
 import random
+import shutil
 
 import moviepy.editor as mpe
+from moviepy.audio.AudioClip import CompositeAudioClip
 
+import audio_tools
+import clear_directories
 import video_tools
 
 CLIPS_DIR = 'clips'
@@ -19,7 +23,28 @@ def resize_all_clips(clips, w, h):
     return res
 
 
-def join_clips(num_clips_in_video=20):
+def make_video_from_clips(clips, res_dir_name, minw, minh, num_clips_in_video, res_name, big_audio_path=None,
+                          replace_audio=False):
+    clips = resize_all_clips(clips, minw, minh)
+
+    where_to_ads_i = random.randint(min(2, num_clips_in_video - 1), min(8, num_clips_in_video))
+    clips.insert(where_to_ads_i, ads_clip)
+
+    video = video_tools.join_clips_to_video(clips)
+    big_audio = mpe.AudioFileClip(big_audio_path)
+    audio = audio_tools.audio_change_for_video(big_audio, 3, video)
+
+    if replace_audio:
+        video = video.set_audio(audio)
+    else:
+        video = video.set_audio(CompositeAudioClip([video.audio, audio]))
+
+    video.write_videofile(os.path.join(res_dir_name, res_name), codec='mpeg4', audio_codec='aac')
+
+
+def join_clips(num_clips_in_video=20, res_dir_name='results', big_audio=None, replace_audio=False):
+    clear_directories.clear_directory(res_dir_name)
+
     clips_paths = list(filter(lambda f: f.startswith('video'), os.listdir(CLIPS_DIR)))
 
     random.shuffle(clips_paths)
@@ -35,11 +60,10 @@ def join_clips(num_clips_in_video=20):
         clips.append(clip)
 
         if len(clips) == num_clips_in_video:
-            clips = resize_all_clips(clips, minw, minh)
-            where_to_ads_i = random.randint(min(2, num_clips_in_video - 1), min(8, num_clips_in_video))
-            clips.insert(where_to_ads_i, ads_clip)
-            video_tools.join_clips_to_video(clips, os.path.join('results', f'result{video_i}.mp4'))
+            res_name = f'result{video_i}.mp4'
             video_i += 1
-            clips.clear()
+            make_video_from_clips(clips, res_dir_name, minw, minh, num_clips_in_video, res_name, big_audio,
+                                  replace_audio)
             minw = 1000000
             minh = 1000000
+            clips.clear()

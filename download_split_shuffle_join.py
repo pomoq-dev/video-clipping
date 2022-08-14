@@ -65,8 +65,8 @@ def start():
                  'https://www.youtube.com/watch?v=nI89RHbR7nc',
                  'https://www.youtube.com/watch?v=PvcaIJbmBKA']
 
-    download_and_split_video.download_and_split_by_clips(urls_binge)
-    clips_random_joiner.join_clips(14)
+    # download_and_split_video.download_and_split_by_clips(urls_binge)
+    clips_random_joiner.join_clips(14, 'results_vidosa', 'beethoven.flac', True)
 
 
 start()

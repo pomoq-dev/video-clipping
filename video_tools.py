@@ -9,9 +9,9 @@ def add_audio_to_video(path_video, path_audio):
     return final_clip
 
 
-def join_clips_to_video(clips, res_path):
+def join_clips_to_video(clips):
     out = mpe.concatenate_videoclips(clips)
-    out.write_videofile(res_path, codec='mpeg4', audio_codec='aac')
+    return out
 
 
 def split_video(clip, segments_num):
