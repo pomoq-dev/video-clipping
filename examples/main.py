@@ -1,7 +1,9 @@
 import moviepy.editor
 import os
 import random
-import fnmatch 
+import fnmatch
+
+from src import video_tools
 
 directory = '/directory/to/videos/'
 xdim = 854
@@ -29,5 +31,4 @@ for i in inputs:
 
 # combine clips from different videos
 collage = moviepy.editor.concatenate_videoclips(outputs) 
-
-collage.write_videofile('out.mp4')
+video_tools.save_video(collage, 'out.mp4')

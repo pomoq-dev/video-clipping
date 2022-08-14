@@ -5,7 +5,7 @@ import moviepy.editor as mpe
 from moviepy.audio.AudioClip import CompositeAudioClip
 
 from src import audio_tools, clear_directories
-import video_tools
+from src import video_tools
 
 CLIPS_DIR = '../clips'
 ads_clip = mpe.VideoFileClip('../ExtensionAds.mp4')
@@ -37,7 +37,7 @@ def make_video_from_clips(clips, res_dir_name, minw, minh, num_clips_in_video, r
     else:
         video = video.set_audio(CompositeAudioClip([video.audio, audio]))
 
-    video.write_videofile(os.path.join(res_dir_name, res_name), codec='mpeg4', audio_codec='aac')
+    video_tools.save_video(video, os.path.join(res_dir_name, res_name))
 
 
 def join_clips(num_clips_in_video=20, res_dir_name='results', big_audio=None, replace_audio=False):

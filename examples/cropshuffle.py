@@ -2,7 +2,7 @@ import random
 
 from src import video_tools
 from src.download import download_video_and_audio
-from src.video_tools import add_audio_to_video, split_video_segments_num
+from src.video_tools import add_audio_to_video, split_video_segments_num, save_video
 
 PATH = '/Users/andrey.matveev/VIDEO/input.mp4'
 PATH_AUDIO = '/Users/andrey.matveev/VIDEO/input.m4a'
@@ -18,4 +18,4 @@ outputs = split_video_segments_num(clip, SEGMENTS)
 
 random.shuffle(outputs)
 res = video_tools.join_clips_to_video(outputs)
-res.write_videofile('out.mp4', codec='mpeg4', audio_codec='aac')
+save_video(res, 'out.mp4')

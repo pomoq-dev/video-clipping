@@ -3,6 +3,8 @@ import random
 
 import moviepy.editor as mpe
 
+from src import video_tools
+
 RESULTS_DIR = '../results'
 
 
@@ -15,4 +17,4 @@ for video_path in videos_paths:
         new_video = video.subclip(0, max_duration)
         name = video_path.split('.mp4')[0]
         new_path = f'{name}_15.mp4'
-        new_video.write_videofile(os.path.join(RESULTS_DIR, new_path), codec= 'mpeg4', audio_codec='aac')
+        video_tools.save_video(new_video, os.path.join(RESULTS_DIR, new_path))

@@ -36,3 +36,7 @@ def split_video(clip, part_len, segments_num):
         out_clip = clip.subclip(start, end)
         outputs.append(out_clip)
     return outputs
+
+
+def save_video(video, file_path):
+    video.write_videofile(file_path, codec='h264', audio_codec='aac')

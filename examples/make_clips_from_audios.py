@@ -7,6 +7,7 @@ import src.audio_tools
 import src.clear_directories
 import src.download_and_split_video
 from src.files_tools import get_all_paths_files_ext_in_dir
+from src import video_tools
 
 SOURCE_VIDEO_FOR_SPLIT = '../source_video_to_split'
 SHORT_CLIPS = '../short_clips'
@@ -30,6 +31,7 @@ def split_songs_to_clips():
     src.clear_directories.clear_directory(RES_AUDIOS)
 
     audio_names = os.listdir(SOURCE_AUDIOS)
+    audio_names = audio_names[0:10]
     for name_i, name in enumerate(audio_names):
         if not name.endswith('.mp3'):
             continue
@@ -56,20 +58,17 @@ def join_random_clips(clips_in_one):
     num_long_audios = len(audio_paths) // clips_in_one
     for long_audio_i in range(0, num_long_audios):
         res_path = os.path.join(RES_LONG_AUDIOS, f'long_audio{long_audio_i}.mp4')
-        sub_audios = []
         sub_videos = []
         for i in range(0, clips_in_one):
             path_i = long_audio_i * clips_in_one + i
             sub_audio = mpe.AudioFileClip(audio_paths[path_i])
             sub_video = mpe.VideoFileClip(video_paths[random.randint(0, len(video_paths) - 1)])
-            sub_audios.append(sub_audio)
+            sub_video = sub_video.set_audio(sub_audio)
             sub_videos.append(sub_video)
         res_video = mpe.concatenate_videoclips(sub_videos)
-        res_audio = mpe.concatenate_audioclips(sub_audios)
-        res_video = res_video.set_audio(res_audio)
-        res_video.write_videofile(res_path, codec='mpeg4', audio_codec='aac')
+        video_tools.save_video(res_video, res_path)
 
 
 download_split_videos()
 split_songs_to_clips()
-join_random_clips(200)
+join_random_clips(10)
