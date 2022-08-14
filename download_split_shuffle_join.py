@@ -66,7 +66,7 @@ def start():
                  'https://www.youtube.com/watch?v=PvcaIJbmBKA']
 
     download_and_split_video.download_and_split_by_clips(urls_binge)
-    clips_random_joiner.join_clips()
+    clips_random_joiner.join_clips(14)
 
 
 start()
