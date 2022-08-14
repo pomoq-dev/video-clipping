@@ -1,6 +1,7 @@
 import random
 import subprocess
 from subprocess import run
+import yt_dlp
 
 
 def download_video_and_audio(yt_url, res_video_path, res_audio_path):
@@ -46,14 +47,36 @@ def download_video_and_audio_run(yt_url, res_video_path, res_audio_path):
             dl_audio_id = id
 
     print('Downloading video...')
-    print(' '.join(['yt-dlp', '-f', dl_video_id, f"{yt_url}", '-o', res_video_path]))
-    text = run(['yt-dlp', '-f', dl_video_id, f"{yt_url}", '-o', res_video_path], capture_output=True).stdout
-    print(text)
+
+    URLS = [yt_url]
+    ydl_opts = {
+        'format': '{}'.format(dl_video_id),
+        'output': res_video_path
+    }
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        error_code = ydl.download(URLS)
+        print(error_code)
+
+    # print(' '.join(['yt-dlp', '-f', dl_video_id, f"{yt_url}", '-o', res_video_path]))
+    # text = run(['yt-dlp', '-f', dl_video_id, f"{yt_url}", '-o', res_video_path], capture_output=True).stdout
+    # print(text)
+
+    # --------------------------------------------------------------
 
     print('Downloading audio...')
-    print(' '.join(['yt-dlp', '-f', dl_audio_id, f"{yt_url}", '-o', res_audio_path]))
-    text = run(['yt-dlp', '-f', dl_audio_id, f"{yt_url}", '-o', res_audio_path], capture_output=True).stdout
-    print(text)
+
+    URLS = [yt_url]
+    ydl_opts = {
+        'format': '{}'.format(dl_audio_id),
+        'output': res_audio_path
+    }
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        error_code = ydl.download(URLS)
+        print(error_code)
+
+    # print(' '.join(['yt-dlp', '-f', dl_audio_id, f"{yt_url}", '-o', res_audio_path]))
+    # text = run(['yt-dlp', '-f', dl_audio_id, f"{yt_url}", '-o', res_audio_path], capture_output=True).stdout
+    # print(text)
 
     print('Completed')
 
