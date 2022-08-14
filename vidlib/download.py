@@ -46,10 +46,12 @@ def download_video_and_audio_run(yt_url, res_video_path, res_audio_path):
             dl_audio_id = id
 
     print('Downloading video...')
+    print(' '.join(['yt-dlp', '-f', dl_video_id, f"{yt_url}", '-o', res_video_path]))
     text = run(['yt-dlp', '-f', dl_video_id, f"{yt_url}", '-o', res_video_path], capture_output=True).stdout
     print(text)
 
     print('Downloading audio...')
+    print(' '.join(['yt-dlp', '-f', dl_audio_id, f"{yt_url}", '-o', res_audio_path]))
     text = run(['yt-dlp', '-f', dl_audio_id, f"{yt_url}", '-o', res_audio_path], capture_output=True).stdout
     print(text)
 
