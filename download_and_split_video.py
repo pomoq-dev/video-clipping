@@ -25,7 +25,6 @@ for i in range(0, len(video_urls)):
 
 
 name_i = 0
-sub_clip_i = 0
 for url in video_urls:
     video, audio = names[name_i]
     name_i += 1
@@ -34,6 +33,7 @@ for url in video_urls:
 
     segments_num = round(clip.duration / SUBCLIP_LEN)
     sub_clips = split_video(clip, segments_num)
+    sub_clip_i = 0
     for sub_clip in sub_clips:
         res_name = os.path.join('clips', f'video{name_i}clip{sub_clip_i}.mp4')
         sub_clip.write_videofile(res_name, codec= 'mpeg4', audio_codec='aac')
