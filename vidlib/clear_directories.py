@@ -6,7 +6,7 @@ def clear_directory(name):
     print(f'Removing {name}...')
     if os.path.isdir(name):
         shutil.rmtree(name)
-    os.mkdir(name)
+    os.makedirs(name)
 
 
 def clear_all():
