@@ -1,4 +1,5 @@
 import moviepy.editor as mpe
+from moviepy.video.VideoClip import ColorClip
 from tqdm import tqdm
 
 import vidlib.mylog

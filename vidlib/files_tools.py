@@ -30,3 +30,10 @@ def rename_files_random(dir_with_files):
 
     for path, new_path in zip(paths, new_paths):
         os.rename(path, new_path)
+
+
+def list_full_paths(directory: str, only_format=''):
+    res = [os.path.join(directory, file) for file in os.listdir(directory)]
+    if only_format == '':
+        return res
+    return list(filter(lambda x: x.endswith(only_format), res))
