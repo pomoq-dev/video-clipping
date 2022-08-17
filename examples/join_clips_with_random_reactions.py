@@ -19,12 +19,12 @@ random.shuffle(random_reactions)
 res_clips = []
 for clip_path in random_clips:
     clip = mpe.VideoFileClip(clip_path)
-    height = clip.size[1]
-    clip = clip.resize((1080, 1920))
+    width = clip.size[0]
+    # clip = clip.resize((1080, 1920))
     res_clips.append(clip)
     reaction_path = random.choice(random_reactions)
     reaction = mpe.VideoFileClip(reaction_path)
-    reaction = reaction.resize((1080, 1920))
+    reaction = reaction.resize(width=width)
     res_clips.append(reaction)
 
 video = video_tools.concatenate_videos(res_clips)
