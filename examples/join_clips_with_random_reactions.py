@@ -16,15 +16,18 @@ random.shuffle(random_clips)
 random_reactions = files_tools.list_full_paths(REACTIONS_DIR, only_format='.mp4')
 random.shuffle(random_reactions)
 
+min_width = min(list(map(lambda el: mpe.VideoFileClip(el).size[0], random_clips)))
+
 res_clips = []
 for clip_path in random_clips:
     clip = mpe.VideoFileClip(clip_path)
-    width = clip.size[0]
+    clip = clip.resize(width=min_width)
+    height = clip.size[1]
     # clip = clip.resize((1080, 1920))
     res_clips.append(clip)
     reaction_path = random.choice(random_reactions)
     reaction = mpe.VideoFileClip(reaction_path)
-    reaction = reaction.resize(width=width)
+    reaction = reaction.resize(height=height)
     res_clips.append(reaction)
 
 video = video_tools.concatenate_videos(res_clips)
