@@ -47,3 +47,19 @@ def get_video_duration_by_path(video_path):
     duration = video.duration
     video.close()
     return duration
+
+
+def crop_center_square_video(video_clip):
+    w = video_clip.size[0]
+    h = video_clip.size[1]
+    if w == h:
+        return video_clip
+
+    if w > h:
+        start_w = (w - h) / 2
+        end_w = w - (w - h) / 2
+        return video_clip.crop(x1 = start_w, y1 = 0, x2 = end_w, y2 = h)
+    else:
+        start_h = (h - w) / 2
+        end_h = h - (h - w) / 2
+        return video_clip.crop(x1=0, y1=start_h, x2=w, y2=end_h)
