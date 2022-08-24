@@ -102,8 +102,8 @@ def print_subprocess_output(proc):
         print(line)
 
 
-def download_video_with_audio(yt_url):
-    p = subprocess.Popen(['yt-dlp', '-f', 'best', f"{yt_url}", '-o', SOURCE_VIDEO_NAME], stdout=subprocess.PIPE,
+def download_video_with_audio(yt_url, res_video_path):
+    p = subprocess.Popen(['yt-dlp', '-f', 'best', f"{yt_url}", '-o', res_video_path], stdout=subprocess.PIPE,
                          stderr=subprocess.PIPE)
     print_subprocess_output(p)
     print(42)
