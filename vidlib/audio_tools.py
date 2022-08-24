@@ -5,6 +5,9 @@ from moviepy import editor as mpe
 from pydub import AudioSegment
 from tqdm import tqdm
 
+import soundfile as sf
+from pysndfx import AudioEffectsChain
+import librosa
 
 def split_audio_to_parts(audio, piece_duration=3):
     sub_audios = []
@@ -84,3 +87,16 @@ def join_audios_by_path(audio_clip_paths, output_path, verbose=1):
 def generate_empty_wav(output_path: str, duration=500, format='wav'):
     one_sec_segment = AudioSegment.silent(duration=duration)
     one_sec_segment.export(output_path, format=format)
+
+
+def get_duration_ratio(path1, path2):
+    dur1 = librosa.get_duration(filename=path1)
+    dur2 = librosa.get_duration(filename=path2)
+    return dur1 / dur2
+
+
+def change_sound_speed(sound_path, out_path, ratio):
+    s, rate = sf.read(sound_path)
+    fx = (AudioEffectsChain().speed(ratio))
+    s = fx(s, sample_in=rate)
+    sf.write(out_path, s, rate, 'PCM_16')
