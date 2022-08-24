@@ -48,7 +48,7 @@ def m4a2wav(m4a_path, wav_path, remove_original=False):
         os.remove(m4a_path)
 
 
-def join_wav_audios(audio_clip_paths, output_path, verbose=1):
+def join_audios_by_path(audio_clip_paths, output_path, verbose=1):
     """
         Concatenates two or more audio files into one audio file using PyDub library
         and save it to `output_path`. A lot of extensions are supported, more on PyDub's doc.

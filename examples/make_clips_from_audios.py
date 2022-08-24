@@ -6,6 +6,7 @@ from moviepy import editor as mpe
 import vidlib.audio_tools
 import vidlib.clear_directories
 import vidlib.download_and_split_video
+import vidlib.files_tools
 from vidlib.files_tools import get_all_paths_files_ext_in_dir
 from vidlib import video_tools
 
@@ -28,7 +29,7 @@ def download_split_videos():
 
 
 def split_songs_to_clips():
-    vidlib.clear_directories.clear_directory(RES_AUDIOS)
+    vidlib.files_tools.clear_directory(RES_AUDIOS)
 
     audio_names = os.listdir(SOURCE_AUDIOS)
     audio_names = audio_names[0:10]
@@ -54,7 +55,7 @@ def join_random_clips(clips_in_one):
     random.shuffle(audio_paths)
     random.shuffle(video_paths)
 
-    vidlib.clear_directories.clear_directory(RES_LONG_AUDIOS)
+    vidlib.files_tools.clear_directory(RES_LONG_AUDIOS)
     num_long_audios = len(audio_paths) // clips_in_one
     for long_audio_i in range(0, num_long_audios):
         res_path = os.path.join(RES_LONG_AUDIOS, f'long_audio{long_audio_i}.mp4')

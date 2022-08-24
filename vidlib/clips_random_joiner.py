@@ -4,6 +4,7 @@ import random
 import moviepy.editor as mpe
 from moviepy.audio.AudioClip import CompositeAudioClip
 
+import vidlib.files_tools
 from vidlib import audio_tools, clear_directories
 from vidlib import video_tools
 
@@ -41,7 +42,7 @@ def make_video_from_clips(clips, res_dir_name, minw, minh, num_clips_in_video, r
 
 
 def join_clips(num_clips_in_video=20, res_dir_name='results', big_audio=None, replace_audio=False):
-    clear_directories.clear_directory(res_dir_name)
+    vidlib.files_tools.clear_directory(res_dir_name)
 
     clips_paths = list(filter(lambda f: f.startswith('video'), os.listdir(CLIPS_DIR)))
 

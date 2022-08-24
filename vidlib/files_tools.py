@@ -1,5 +1,6 @@
 import os
 import random
+import shutil
 
 
 def get_all_paths_files_ext_in_dir(dir_path, ext):
@@ -37,3 +38,16 @@ def list_full_paths(directory: str, only_format=''):
     if only_format == '':
         return res
     return list(filter(lambda x: x.endswith(only_format), res))
+
+
+def clear_directory(name):
+    print(f'Removing {name}...')
+    if os.path.isdir(name):
+        shutil.rmtree(name)
+    os.makedirs(name)
+
+
+def clear_all():
+    clear_directory('clips')
+    clear_directory('results')
+    clear_directory('source')
