@@ -79,3 +79,8 @@ def join_audios_by_path(audio_clip_paths, output_path, verbose=1):
     if verbose:
         print(f"Exporting resulting audio file to {output_path}")
     final_clip.export(output_path, format=final_clip_extension)
+
+
+def generate_empty_wav(output_path: str, duration=500, format='wav'):
+    one_sec_segment = AudioSegment.silent(duration=duration)
+    one_sec_segment.export(output_path, format=format)
