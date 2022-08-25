@@ -35,7 +35,7 @@ def split_video(clip, part_len, segments_num):
 
 
 def save_video(video, file_path):
-    video.write_videofile(file_path, audio_codec='aac')
+    video.write_videofile(file_path, audio_codec='aac', codec='h264')
 
 
 def concatenate_videos(videos):
