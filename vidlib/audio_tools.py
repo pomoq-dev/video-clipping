@@ -10,6 +10,7 @@ from pysndfx import AudioEffectsChain
 import librosa
 import pyaudioconvert as pac
 
+
 def split_audio_to_parts(audio, piece_duration=3):
     sub_audios = []
     piece_cnt = round(audio.duration / piece_duration)
@@ -69,8 +70,11 @@ def join_audios_by_path(audio_clip_paths, output_path, verbose=1):
         # get extension of the audio file
         extension = get_file_extension(clip_path)
         # load the audio clip and append it to our list
-        clip = AudioSegment.from_file(clip_path, extension)
-        clips.append(clip)
+        try:
+            clip = AudioSegment.from_file(clip_path, extension)
+            clips.append(clip)
+        except:
+            pass
 
     final_clip = clips[0]
     range_loop = tqdm(list(range(1, len(clips))), "Concatenating audio") if verbose else range(1, len(clips))
