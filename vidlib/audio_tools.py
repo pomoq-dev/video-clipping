@@ -8,6 +8,7 @@ from tqdm import tqdm
 import soundfile as sf
 from pysndfx import AudioEffectsChain
 import librosa
+import pyaudioconvert as pac
 
 def split_audio_to_parts(audio, piece_duration=3):
     sub_audios = []
@@ -100,3 +101,7 @@ def change_sound_speed(sound_path, out_path, ratio):
     fx = (AudioEffectsChain().speed(ratio))
     s = fx(s, sample_in=rate)
     sf.write(out_path, s, rate, 'PCM_16')
+
+
+def change_samplerate_to_16k(sound_path, output_path):
+    pac.convert_wav_to_16bit_mono(sound_path, output_path)
