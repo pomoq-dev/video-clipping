@@ -6,4 +6,3 @@ pydub
 soundfile
 pysndfx
 pyaudioconvert
-sox
