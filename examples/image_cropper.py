@@ -4,8 +4,8 @@ import os.path
 from vidlib import files_tools
 from PIL import Image
 
-DIRECTORY = '../images/millitary_equipment'
-RES_DIRECTORY = '../images_new'
+DIRECTORY = '/Users/andrey.matveev/Documents/IMGS_GIRLS'
+RES_DIRECTORY = '../images_new_girl_new'
 files_tools.clear_directory(RES_DIRECTORY)
 
 images = files_tools.list_full_paths(DIRECTORY, only_format='.png')
