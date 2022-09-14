@@ -3,7 +3,7 @@ import random
 
 import moviepy.editor as mpe
 
-from vidlib import video_tools
+from src.vidliboba import video_tools
 
 RESULTS_DIR = '../results'
 

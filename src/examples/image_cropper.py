@@ -1,7 +1,7 @@
 import math
 import os.path
 
-from vidlib import files_tools
+from src.vidliboba import files_tools
 from PIL import Image
 
 DIRECTORY = '/Users/andrey.matveev/Documents/IMGS_GIRLS'

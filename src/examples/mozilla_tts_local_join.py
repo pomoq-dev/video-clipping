@@ -1,8 +1,7 @@
 import os.path
 import subprocess
 
-from vidlib import audio_tools
-from vidlib import files_tools
+from src.vidliboba import files_tools, audio_tools
 
 # Run `docker-mozillatts % docker run -it -p 5002:5002 synesthesiam/mozillatts:en` in terminal to start the server (!!!)
 # TODO: try custom model

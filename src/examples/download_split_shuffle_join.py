@@ -1,4 +1,4 @@
-from vidlib import clips_random_joiner
+from src.vidliboba import clips_random_joiner
 
 
 def start():

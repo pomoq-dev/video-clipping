@@ -1,5 +1,5 @@
 import glob
-from vidlib.images_tools import heic_2_png
+from src.vidliboba.images_tools import heic_2_png
 
 lst = glob.glob("/Users/andrey.matveev/Downloads/*.heic")
 

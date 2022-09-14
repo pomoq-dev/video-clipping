@@ -1,8 +1,6 @@
 import os.path
 
-from vidlib import files_tools
-from vidlib import video_tools
-from vidlib import audio_tools
+from src.vidliboba import files_tools, audio_tools, video_tools
 from moviepy import editor as mpe
 
 VIDEO_DIR = '../drive-download-20220825T115431Z-001'

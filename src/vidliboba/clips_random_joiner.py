@@ -4,9 +4,8 @@ import random
 import moviepy.editor as mpe
 from moviepy.audio.AudioClip import CompositeAudioClip
 
-import vidlib.files_tools
-from vidlib import audio_tools, clear_directories
-from vidlib import video_tools
+import src.vidliboba.files_tools
+from src.vidliboba import audio_tools, video_tools
 
 CLIPS_DIR = '../clips'
 ads_clip = mpe.VideoFileClip('../ExtensionAds.mp4')
@@ -42,7 +41,7 @@ def make_video_from_clips(clips, res_dir_name, minw, minh, num_clips_in_video, r
 
 
 def join_clips(num_clips_in_video=20, res_dir_name='results', big_audio=None, replace_audio=False):
-    vidlib.files_tools.clear_directory(res_dir_name)
+    src.vidlib.files_tools.clear_directory(res_dir_name)
 
     clips_paths = list(filter(lambda f: f.startswith('video'), os.listdir(CLIPS_DIR)))
 

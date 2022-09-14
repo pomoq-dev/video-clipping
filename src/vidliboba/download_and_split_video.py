@@ -2,9 +2,9 @@ import os
 
 from tqdm import tqdm
 
-import vidlib.files_tools
-from vidlib.download import download_video_and_audio_using_lib
-from vidlib import clear_directories, video_tools
+import src.vidliboba.files_tools
+from src.vidliboba.download import download_video_and_audio_using_lib
+from src.vidliboba import video_tools
 from moviepy import editor as mpe
 
 old_video_urls = ['https://www.youtube.com/watch?v=0PvbixQ_tJ0',
@@ -20,8 +20,8 @@ old_video_urls = ['https://www.youtube.com/watch?v=0PvbixQ_tJ0',
 
 
 def download_and_split_by_clips(video_urls, source_dir='../source', out_dir='../clips', subclip_len=44, skip_first=0, add_audio=True):
-    vidlib.files_tools.clear_directory(out_dir)
-    vidlib.files_tools.clear_directory(source_dir)
+    src.vidlib.files_tools.clear_directory(out_dir)
+    src.vidlib.files_tools.clear_directory(source_dir)
 
     names = []
     for i in range(0, len(video_urls)):

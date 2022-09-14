@@ -1,8 +1,6 @@
-import os
 import random
 
-from vidlib import files_tools
-from vidlib import video_tools
+from src.vidliboba import files_tools, video_tools
 
 from moviepy import editor as mpe
 
