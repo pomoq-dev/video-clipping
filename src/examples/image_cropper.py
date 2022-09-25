@@ -4,7 +4,7 @@ import os.path
 from src.vidliboba import files_tools
 from PIL import Image
 
-DIRECTORY = '/Users/andrey.matveev/Documents/IMGS_GIRLS'
+DIRECTORY = '..'
 RES_DIRECTORY = '../images_new_girl_new'
 files_tools.clear_directory(RES_DIRECTORY)
 
